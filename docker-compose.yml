@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  tftpd-hpa:
+    build:
+        context: ./
+    volumes:
+      - ./tftp:/srv/tftp:ro
+    network_mode: host
+    ports:
+      - 69:69/udp
