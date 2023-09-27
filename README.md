@@ -27,6 +27,10 @@ ifconfig eth1:1 192.168.0.66/24 up
 cat /sys/class/net/eth1/{carrier,operstate}
 watch -n.2 ethtool eth1
 
+
+## watch eth traffic
+tcpdump -npi eth1:1
+
 export ROUTER_FIRMWARE_NAME=wr842nv2_tp_recovery.bin
 cp openwrt.bin ./tftp/${ROUTER_FIRMWARE_NAME}
 docker-compose up -d
